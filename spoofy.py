@@ -34,8 +34,8 @@ def menu():
     if opt == '1':
         send_email = input("Enter email id to be spoofed: ")
         rec_email = input("Enter email id to be attacked: ")
-        username = 'world13'
-        password = 'world131'
+        username = 'username'
+        password = 'password'
         print("Enter your message down here: ")
         message = sys.stdin.read()
 
@@ -47,7 +47,7 @@ def menu():
                 print("Sending emails...")
                 server = smtplib.SMTP('mail.smtp2go.com', 2525)
                 server.starttls()
-                server.login("world13", "world131")
+                server.login("username", "password")
                 server.sendmail(send_email, rec_email, message)
                 print()
                 print("Spoofy has finished sending emails!\n")
@@ -64,15 +64,15 @@ def menu():
             i = int(input("How many time do you want to send bulk mail (MAX: 25 EMAILS) : "))
             print("Enter your message down here: ")
             message = sys.stdin.read()
-            username = 'world13'
-            password = 'world131'
+            username = 'username'
+            password = 'password'
             j = 0
 
             while j < i:
                 j += 1
                 print(j, ")Sending emails to", rec_email, "through", send_email)
                 server = smtplib.SMTP('mail.smtp2go.com', 2525)
-                server.login("world13", "world131")
+                server.login("username", "password")
                 server.sendmail(send_email, rec_email, message)
             print("\nSpoofy has finished sending emails!\n")
 
@@ -629,8 +629,8 @@ def menu():
             toaddr = input("Enter Target Email-Address To Send To: ")
             subject = input("Enter Subject: ")
             pathfile = input("Enter Path To Html File: ")
-            username = 'world13'
-            password = 'world131'
+            username = 'username'
+            password = 'password'
 
             html = open(pathfile)
             msg = MIMEText(html.read(), 'html')
@@ -644,7 +644,7 @@ def menu():
             else:
                 server = smtplib.SMTP('mail.smtp2go.com', 2525)
                 server.starttls()
-                server.login("world13", "world131")
+                server.login("username", "password")
                 text = msg.as_string()
                 server.sendmail(fromaddr, toaddr, text)
                 server.quit()
